@@ -1,0 +1,34 @@
+page-menu-opciones {
+    .container{
+        display: flex;
+        background: #359CC7;
+        height: 100%;
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .child{
+        min-width: 50px;
+        min-height: 50px;
+    }
+    .child.favoritos{
+        //background-image: "../../assets/img/icon-especialidad.png";
+        flex:1;
+    }
+    .child.procedimientos{
+        //background-image: "../../assets/img/icon-especialidad.png";
+        flex:1;
+    }
+    .child.especialidad{
+        //background-image: "../../assets/img/icon-especialidad.png";
+        flex: 1;
+    }
+    .child.recientes{
+        //background-image: "../../assets/img/icon-especialidad.png";
+        flex:1;
+    }
+    .child.todos{
+        //background-image: "../../assets/img/icon-especialidad.png";
+        flex:1;
+    }
+
+}

@@ -1,0 +1,32 @@
+page-login {
+    .login-title{
+        font-family: freeScript;
+        color: #359CC7;
+        font-size: 4em;
+    }
+    .login-main{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .login-form{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: center;
+    }
+    .login-bg{
+        background-image: url('../../assets/img/login_fondo.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    .text-input-wp{
+        border-color: white;
+    }
+    .logo{
+        height: 160px;
+        width: 160px;
+    }
+
+}
