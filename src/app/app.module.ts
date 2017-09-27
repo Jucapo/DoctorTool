@@ -11,19 +11,28 @@ import { HomePage } from '../pages/home/home';
 import { FavoritosPage } from '../pages/favoritos/favoritos';  
 import { ConfiguracionesPage } from '../pages/configuraciones/configuraciones';
 import { MenuOpcionesPage } from '../pages/menu-opciones/menu-opciones';
+import { EspecialidadPage } from '../pages//especialidad/especialidad';
+import { ProcesosPage } from '../pages//procesos/procesos';
+import { RecientesPage } from '../pages//recientes/recientes';
+import { TodosPage } from '../pages//todos/todos';
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     LoginPage,
-    FavoritosPage,
     ConfiguracionesPage,
-    MenuOpcionesPage
+    MenuOpcionesPage,
+    FavoritosPage,
+    EspecialidadPage,
+    ProcesosPage,
+    RecientesPage,
+    TodosPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {tabsPlacement: 'top'}),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
@@ -33,7 +42,11 @@ import { MenuOpcionesPage } from '../pages/menu-opciones/menu-opciones';
     LoginPage,
     FavoritosPage,
     ConfiguracionesPage,
-    MenuOpcionesPage
+    MenuOpcionesPage,
+    EspecialidadPage,
+    ProcesosPage,
+    RecientesPage,
+    TodosPage
   ],
   providers: [
     StatusBar,

@@ -1,19 +1,7 @@
-<ion-content>
-  <div class="container">
-    <button ion-button class="child favoritos">
-              <img src="../../assets/img/icon-fav.png">
-            </button>
-    <button ion-button class="child procedimientos" (click)="goProcedimientos">
-              <img src="../../assets/img/icon-procedimientos.png" >
-            </button>
-    <button ion-button class="child especialidad">
-              <img src="../../assets/img/icon-recientes.png" >
-            </button>
-    <button ion-button class="child recientes">
-              <img src="../../assets/img/icon-especialidad.png" >
-            </button>
-    <button ion-button class="child todos">
-              <img src="../../assets/img/icon-todos.png" >
-            </button>
-  </div>
-</ion-content>
+<ion-tabs color="primary">
+  <ion-tab [root]="favoritosRoot" tabTitle="Favoritos" tabIcon="star"></ion-tab>
+  <ion-tab [root]="procesosRoot" tabTitle="Procesos" tabIcon="list-box"></ion-tab>
+  <ion-tab [root]="especialidadRoot" tabTitle="Especialidad" tabIcon="school"></ion-tab>
+  <ion-tab [root]="recientesRoot" tabTitle="Recientes" tabIcon="clock"></ion-tab>
+  <ion-tab [root]="todosRoot" tabTitle="Todas" tabIcon="keypad"></ion-tab>
+</ion-tabs>

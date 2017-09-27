@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
-import { FavoritosPage } from '../favoritos/favoritos';
+//import { FavoritosPage } from '../favoritos/favoritos';
 import { ConfiguracionesPage } from '../configuraciones/configuraciones';
 import { MenuOpcionesPage } from '../menu-opciones/menu-opciones';
 
@@ -12,7 +12,7 @@ import { MenuOpcionesPage } from '../menu-opciones/menu-opciones';
 })
 export class HomePage {
 
-  root: any = FavoritosPage;
+  root: any = MenuOpcionesPage;
 
   menuOpc: Menu[] = [
 
