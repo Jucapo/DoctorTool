@@ -4,6 +4,7 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
+import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
@@ -15,6 +16,8 @@ import { EspecialidadPage } from '../pages//especialidad/especialidad';
 import { ProcesosPage } from '../pages//procesos/procesos';
 import { RecientesPage } from '../pages//recientes/recientes';
 import { TodosPage } from '../pages//todos/todos';
+import { FormulasProvider } from '../providers/formulas/formulas';
+import { FormulaPage } from '../pages/formula/formula';
 
 
 @NgModule({
@@ -28,10 +31,12 @@ import { TodosPage } from '../pages//todos/todos';
     EspecialidadPage,
     ProcesosPage,
     RecientesPage,
-    TodosPage
+    TodosPage,
+    FormulaPage
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp, {tabsPlacement: 'top'}),
     IonicStorageModule.forRoot()
   ],
@@ -46,12 +51,14 @@ import { TodosPage } from '../pages//todos/todos';
     EspecialidadPage,
     ProcesosPage,
     RecientesPage,
-    TodosPage
+    TodosPage,
+    FormulaPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FormulasProvider
   ]
 })
 export class AppModule {}

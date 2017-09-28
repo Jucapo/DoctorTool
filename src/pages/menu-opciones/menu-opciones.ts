@@ -12,11 +12,11 @@ import { TodosPage } from '../todos/todos';
 })
 export class MenuOpcionesPage {
 
-  favoritosRoot       = FavoritosPage;
-  procesosRoot  = ProcesosPage;
-  especialidadRoot    = EspecialidadPage;
-  recientesRoot       = RecientesPage;
-  todosRoot           = TodosPage;
+  favoritosRoot    = FavoritosPage;
+  procesosRoot     = ProcesosPage;
+  especialidadRoot = EspecialidadPage;
+  recientesRoot    = RecientesPage;
+  todosRoot        = TodosPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

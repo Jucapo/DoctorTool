@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-
+import { Formula } from '../../providers/formulas/formula';
+import { FormulasProvider } from '../../providers/formulas/formulas';
+import { FormulaPage } from '../formula/formula';
 
 @Component({
   selector: 'page-todos',
@@ -9,11 +10,15 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class TodosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  formulas : Formula [] = [];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public service: FormulasProvider) {
+      this.formulas = service.data;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TodosPage');
+  goToFormula(formula){
+    this.navCtrl.push(FormulaPage, { formula: formula});
   }
 
 }
