@@ -17,6 +17,15 @@ export class FormulaPage {
   }
   
   
-  //
+  /*
+  podria tener los calculos aqui y dependiendo
+  
+  calulo_1(){}
+
+  calulo_2(){}
+
+  calulo_3(){}
+
+  */
 
 }

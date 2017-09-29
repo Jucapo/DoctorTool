@@ -37,7 +37,7 @@ import { FormulaPage } from '../pages/formula/formula';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp, {tabsPlacement: 'top'}),
+    IonicModule.forRoot(MyApp, {tabsPlacement: 'top', tabsHideOnSubPages: true}),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
