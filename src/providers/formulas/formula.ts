@@ -4,7 +4,7 @@ export class Formula{
         public nombre: string,
         public descripcion: string,
         public especialidad: string,
-        public favorito: number,
+        public favorito: boolean,
         public imagen: string
     ){}
 }

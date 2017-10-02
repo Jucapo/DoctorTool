@@ -16,10 +16,6 @@ export class LoginPage {
     public storage: Storage) {
     }
   
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
-
   login(){
     this.storage.set("logged", true);
     this.navCtrl.setRoot(HomePage);

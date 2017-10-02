@@ -5,8 +5,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { IonicStorageModule } from '@ionic/storage';
 import { HttpModule } from '@angular/http';
-
 import { MyApp } from './app.component';
+
+// __________________________PAGES____________________________________
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { FavoritosPage } from '../pages/favoritos/favoritos';  
@@ -16,9 +17,17 @@ import { EspecialidadPage } from '../pages//especialidad/especialidad';
 import { ProcesosPage } from '../pages//procesos/procesos';
 import { RecientesPage } from '../pages//recientes/recientes';
 import { TodosPage } from '../pages//todos/todos';
-import { FormulasProvider } from '../providers/formulas/formulas';
-import { FormulaPage } from '../pages/formula/formula';
 
+// __________________________FORMULAS____________________________________
+import { OsmolaridadPage } from '../pages/formulas/osmolaridad/osmolaridad';
+import { ImcPage } from '../pages/formulas/imc/imc';
+import { AscPage } from '../pages/formulas/asc/asc';
+import { LeePage } from '../pages/formulas/lee/lee';
+import { VstPage } from '../pages/formulas/vst/vst';
+
+//___________________________SERVICIOS___________________________________
+import { FormulasProvider } from '../providers/formulas/formulas';
+import { CalculosProvider } from '../providers/calculos/calculos';
 
 @NgModule({
   declarations: [
@@ -32,7 +41,7 @@ import { FormulaPage } from '../pages/formula/formula';
     ProcesosPage,
     RecientesPage,
     TodosPage,
-    FormulaPage
+    AscPage,ImcPage,OsmolaridadPage,LeePage,VstPage,
   ],
   imports: [
     BrowserModule,
@@ -52,13 +61,14 @@ import { FormulaPage } from '../pages/formula/formula';
     ProcesosPage,
     RecientesPage,
     TodosPage,
-    FormulaPage
+    AscPage,ImcPage,OsmolaridadPage,LeePage,VstPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    FormulasProvider
+    FormulasProvider,
+    CalculosProvider
   ]
 })
 export class AppModule {}

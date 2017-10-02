@@ -9,12 +9,6 @@ page-login {
         flex-direction: column;
         height: 100%;
     }
-    .login-form{
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-        justify-content: center;
-    }
     .login-bg{
         background-image: url('../../assets/img/login_fondo.png');
         background-repeat: no-repeat;
