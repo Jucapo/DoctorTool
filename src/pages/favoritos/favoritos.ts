@@ -33,15 +33,28 @@ export class FavoritosPage {
         this.formulasFav[this.a] = this.formulas[i];
         this.a++;
       }
-    }
-    
-  
+    }  
   }
 
-  
+  addFavorito(formula){
+    this.service.data[formula.id].favorito = !this.service.data[formula.id].favorito ; 
+  }
 
+  doRefresh(refresher) {
+    console.log('Begin async operation', refresher);
+    //this.formulasFav = [];
+    for (var i = 0; i < this.formulas.length; i++) {
+      if (this.formulas[i].favorito) {
+        this.formulasFav[this.a] = this.formulas[i];
+        this.a++;
+      }
+    }  
 
-
+    setTimeout(() => {
+      console.log('Async operation has ended');
+      refresher.complete();
+    }, 2000);
+  }
 
 
 }

@@ -14,16 +14,18 @@
         <ion-row>
             <ion-item ion-col col-10 (click)="goToFormula(formula)">
                 <ion-avatar item-start>
-                    <img src="{{formula.imagen}}">
+                    <ion-img src="{{formula.imagen}}"></ion-img>
                 </ion-avatar>
                 <h2>{{formula.nombre}}</h2>
                 <h3>{{formula.descripcion}}</h3>
             </ion-item>
-
-            <button ion-col col-2 ion-button margin-top icon-only (click)="addFavorito(formula)">     
-                <ion-icon name="star"></ion-icon>    
+   
+            <button ion-col col-2 ion-button color="fav" [clear]="true" margin-top icon-only (click)="addFavorito(formula)">     
+                <ion-icon [name]="formula.favorito ? 'star' : 'ios-star-outline'"></ion-icon>    
             </button>
+
         </ion-row>
+
     </ion-list>
 
 
