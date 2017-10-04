@@ -6,11 +6,11 @@ import { Formula } from '../../providers/formulas/formula';
 import { FormulasProvider } from '../../providers/formulas/formulas';
 
 //_________________________FORMULAS__________________________________
-// import { ImcPage } from '../formulas/imc/imc';
-// import { OsmolaridadPage } from '../formulas/osmolaridad/osmolaridad';
-// import { AscPage } from '../formulas/asc/asc';
-// import { VstPage } from '../formulas/vst/vst';
-// import { LeePage } from '../formulas/lee/lee';
+import { ImcPage } from '../formulas/imc/imc';
+import { OsmolaridadPage } from '../formulas/osmolaridad/osmolaridad';
+import { AscPage } from '../formulas/asc/asc';
+import { VstPage } from '../formulas/vst/vst';
+import { LeePage } from '../formulas/lee/lee';
 
 
 @Component({
@@ -26,35 +26,32 @@ export class FavoritosPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public service: FormulasProvider) {
       
-    this.formulas = service.data;
-
-    for (var i = 0; i < this.formulas.length; i++) {
+    this.formulas = service.data; // todas las formulas
+    for (var i = 0; i < this.formulas.length; i++) { // de todas las formulas, se escogeran las favoritas
       if (this.formulas[i].favorito) {
-        this.formulasFav[this.a] = this.formulas[i];
+        this.formulasFav[this.a] = this.formulas[i]; 
         this.a++;
       }
     }  
   }
+
+//_______________________ Quitar Formula a Favoritos ____________________________
 
   addFavorito(formula){
     this.service.data[formula.id].favorito = !this.service.data[formula.id].favorito ; 
   }
 
-  doRefresh(refresher) {
-    console.log('Begin async operation', refresher);
-    //this.formulasFav = [];
-    for (var i = 0; i < this.formulas.length; i++) {
-      if (this.formulas[i].favorito) {
-        this.formulasFav[this.a] = this.formulas[i];
-        this.a++;
-      }
-    }  
 
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      refresher.complete();
-    }, 2000);
+  //_________________ Me lleva  a formula seleccionada _______________________
+  goToFormula(formula) {
+    switch (formula.id) {
+      case 0: this.navCtrl.push(OsmolaridadPage, (formula = formula)); break;
+      case 1: this.navCtrl.push(ImcPage, (formula = formula)); break;
+      case 2: this.navCtrl.push(AscPage, (formula = formula)); break;
+      case 3: this.navCtrl.push(LeePage, (formula = formula)); break;
+      case 4: this.navCtrl.push(VstPage, (formula = formula)); break;
+    }
   }
 
-
+  
 }

@@ -8,19 +8,19 @@
 
       <ion-item color="itemLight">
         <ion-label floating>Email</ion-label>
-        <ion-input type="email" name="email"></ion-input>
+        <ion-input type="email" [(ngModel)]="user.email" ></ion-input>
       </ion-item>
 
       <ion-item color="itemLight">
         <ion-label floating>Contraseña</ion-label>
-        <ion-input type="password" name="pass"></ion-input>
+        <ion-input type="password" [(ngModel)]="user.password"></ion-input>
       </ion-item>
       <br/><br/><br/><br/>
     </div>
 
     <div text-center>
-      <button item-center ion-col col-6 col-md-3 col-lg-2 ion-button (click)="login()">Entrar</button><br/><br/>
-      <button item-center ion-col col-6 col-md-3 offset-md-6 col-lg-2 offset-lg-8 ion-button clear>Registrate</button>
+      <button item-center ion-col col-6 col-md-3 col-lg-2 ion-button (click)="login(user)">Entrar</button><br/><br/>
+      <button item-center ion-col col-6 col-md-3 offset-md-6 col-lg-2 offset-lg-8 ion-button clear (click)="registrar()">Registrate</button>
     </div>
   </div>
 </ion-content>
