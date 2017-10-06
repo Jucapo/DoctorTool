@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { Formula } from '../../providers/formulas/formula';
-//import { FavoritosPage } from '../favoritos/favoritos';
+import { FavoritosPage } from '../favoritos/favoritos';
 
 //_________________________SERVICIOS__________________________________
 import { FormulasProvider } from '../../providers/formulas/formulas';
@@ -25,12 +25,14 @@ export class TodosPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public service: FormulasProvider) {
     this.formulas = service.data;
+
   }
 
 //_______________________ Añadir Formula a Favoritos ____________________________
 
   addFavorito(formula){
     this.service.data[formula.id].favorito = !this.service.data[formula.id].favorito ; 
+    this.service.cargaFav();
   }
 
   //_________________ Me lleva  a formula seleccionada _______________________

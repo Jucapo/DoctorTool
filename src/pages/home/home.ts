@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
 import { Storage } from '@ionic/storage';
 
 import { LoginPage } from '../login/login';
@@ -18,13 +17,10 @@ export class HomePage {
   root: any = MenuOpcionesPage;
 
   menuOpc: Menu[] = [
-
     { label: 'Inicio', icon: 'home' },
     { label: 'perfil', icon: 'md-contact' },
     { label: 'configuraciones', icon: 'md-settings' },
-    { label: 'soporte', icon: 'md-build' },
-    
-
+    { label: 'soporte', icon: 'md-build' },  
   ]
 
   constructor(public navCtrl: NavController, public storage: Storage) { }

@@ -19,28 +19,21 @@ import { LeePage } from '../formulas/lee/lee';
 })
 export class FavoritosPage {
 
-  formulas: Formula[] = [];
   formulasFav: Formula[] = [];
-  a=0;
-  
+ 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    public service: FormulasProvider) {
-      
-    this.formulas = service.data; // todas las formulas
-    for (var i = 0; i < this.formulas.length; i++) { // de todas las formulas, se escogeran las favoritas
-      if (this.formulas[i].favorito) {
-        this.formulasFav[this.a] = this.formulas[i]; 
-        this.a++;
-      }
-    }  
+    public service: FormulasProvider) {    
+      this.formulasFav = this.service.formulasFav;
+      this.service.cargaFav();
   }
 
-//_______________________ Quitar Formula a Favoritos ____________________________
+
+  //_______________________ Quitar Formula a Favoritos ____________________________
 
   addFavorito(formula){
-    this.service.data[formula.id].favorito = !this.service.data[formula.id].favorito ; 
+    this.service.data[formula.id].favorito = !this.service.data[formula.id].favorito;
+    this.service.cargaFav();
   }
-
 
   //_________________ Me lleva  a formula seleccionada _______________________
   goToFormula(formula) {
@@ -55,3 +48,4 @@ export class FavoritosPage {
 
   
 }
+
