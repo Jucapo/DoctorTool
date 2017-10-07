@@ -1,4 +1,3 @@
-
 <ion-header>
 
   <ion-navbar color="primary">
@@ -9,5 +8,27 @@
 
 
 <ion-content padding>
+
+  <ion-item>
+    <ion-label floating>nombre</ion-label>
+    <ion-input [(ngModel)]="perfil.nombre"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Apellidos</ion-label>
+    <ion-input [(ngModel)]="perfil.apellidos"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Edad</ion-label>
+    <ion-input [(ngModel)]="perfil.edad"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label floating>Profesion</ion-label>
+    <ion-input [(ngModel)]="perfil.profesion"></ion-input>
+  </ion-item>
+
+  <button ion-button clear block (click)="crearPerfil()">Crear Perfil</button>
 
 </ion-content>

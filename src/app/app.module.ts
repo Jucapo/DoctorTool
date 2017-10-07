@@ -39,6 +39,8 @@ import { CalculosProvider } from '../providers/calculos/calculos';
 import { AngularFireModule  } from "angularfire2";
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireDatabase } from 'angularfire2/database';
+
 
 export const firebaseConfig =  {
   apiKey: "AIzaSyC1cNRtQthdPXGl-EKJPYbgCTYwvwEjV3U",
@@ -74,7 +76,7 @@ export const firebaseConfig =  {
     IonicStorageModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [

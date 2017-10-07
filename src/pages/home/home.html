@@ -3,13 +3,14 @@
     <ion-list no-lines>
 
       <ion-list-header text-center>Perfil</ion-list-header>
-
-
+      <p>nombre:  {{(perfilData | async)?.nombre}} </p>
+      
       <ion-list-header text-center>Menu</ion-list-header>
       <button menuClose ion-item *ngFor="let m of menuOpc; index as i" (click)="setContent(i)">
-          <ion-icon [name]="m.icon" margin-right></ion-icon>{{m.label}}
+        <ion-icon [name]="m.icon" margin-right></ion-icon>{{m.label}}
       </button>
-      <button ion-item (click)="logout()"> <ion-icon name="md-exit" margin-right></ion-icon>Cerrar Sesion</button>
+      <button ion-item (click)="logout()">
+        <ion-icon name="md-exit" margin-right></ion-icon>Cerrar Sesion</button>
 
     </ion-list>
     <div>
@@ -19,3 +20,6 @@
   </ion-menu>
   <ion-nav [root]="root" main #content></ion-nav>
 </ion-split-pane>
+
+<p>nombre:
+  <p>

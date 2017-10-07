@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,ToastController } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
 import { LoginPage } from '../login/login';
@@ -7,6 +7,10 @@ import { MenuOpcionesPage } from '../menu-opciones/menu-opciones';
 import { ConfiguracionesPage } from '../configuraciones/configuraciones';
 import { SoportePage } from '../soporte/soporte';
 import { PerfilPage } from '../perfil/perfil';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database';
+import { Profile } from '../../models/profile';
+
 
 @Component({
   selector: 'page-home',
@@ -15,6 +19,7 @@ import { PerfilPage } from '../perfil/perfil';
 export class HomePage {
 
   root: any = MenuOpcionesPage;
+  perfilData : FirebaseObjectObservable<Profile>
 
   menuOpc: Menu[] = [
     { label: 'Inicio', icon: 'home' },
@@ -23,7 +28,27 @@ export class HomePage {
     { label: 'soporte', icon: 'md-build' },  
   ]
 
-  constructor(public navCtrl: NavController, public storage: Storage) { }
+  constructor(public navCtrl: NavController, public storage: Storage,
+  private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase, private toast: ToastController,) { }
+
+
+    ionViewWillLoad(){
+      this.afAuth.authState.take(1).subscribe(data =>{
+        if(data && data.email && data.uid){
+          this.toast.create({
+            message: `Bienvenido a DooctorTool  ${data.email}`,
+            duration: 3000
+          }).present();
+          this.perfilData =  this.afDatabase.object(`perfil/${data.uid}`)
+        }
+        else{
+          this.toast.create({
+            message: `No se puso autentificar el perfil`,
+            duration: 3000
+          }).present();
+        }
+      })
+    }
 
   setContent(index: number) {
     switch (index) {
