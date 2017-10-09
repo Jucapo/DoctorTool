@@ -38,9 +38,9 @@ import { CalculosProvider } from '../providers/calculos/calculos';
 //______________________________FIREBASE______________________________________
 import { AngularFireModule  } from "angularfire2";
 import { AngularFireAuthModule } from 'angularfire2/auth';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
+//import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireDatabase } from 'angularfire2/database';
-
+import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
 
 export const firebaseConfig =  {
   apiKey: "AIzaSyC1cNRtQthdPXGl-EKJPYbgCTYwvwEjV3U",

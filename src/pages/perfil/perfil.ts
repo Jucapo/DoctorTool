@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
 
 import { HomePage } from '../home/home';
+import { Profile } from '../../models/profile';
+
 
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Profile } from '../../models/profile';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase} from 'angularfire2/database-deprecated';
+
 
 @Component({
   selector: 'page-perfil',

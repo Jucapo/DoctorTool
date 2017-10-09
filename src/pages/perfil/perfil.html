@@ -10,13 +10,8 @@
 <ion-content padding>
 
   <ion-item>
-    <ion-label floating>nombre</ion-label>
+    <ion-label floating>Nombre Completo</ion-label>
     <ion-input [(ngModel)]="perfil.nombre"></ion-input>
-  </ion-item>
-
-  <ion-item>
-    <ion-label floating>Apellidos</ion-label>
-    <ion-input [(ngModel)]="perfil.apellidos"></ion-input>
   </ion-item>
 
   <ion-item>
@@ -25,8 +20,8 @@
   </ion-item>
 
   <ion-item>
-    <ion-label floating>Profesion</ion-label>
-    <ion-input [(ngModel)]="perfil.profesion"></ion-input>
+    <ion-label floating>Especialidad</ion-label>
+    <ion-input [(ngModel)]="perfil.especialidad"></ion-input>
   </ion-item>
 
   <button ion-button clear block (click)="crearPerfil()">Crear Perfil</button>

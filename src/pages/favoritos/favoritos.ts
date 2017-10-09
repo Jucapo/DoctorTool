@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { Formula } from '../../providers/formulas/formula';
 
 //_________________________SERVICIOS__________________________________
+import { Formula } from '../../providers/formulas/formula';
 import { FormulasProvider } from '../../providers/formulas/formulas';
 
 //_________________________FORMULAS__________________________________
@@ -37,6 +37,7 @@ export class FavoritosPage {
 
   //_________________ Me lleva  a formula seleccionada _______________________
   goToFormula(formula) {
+    this.service.cargaRec(formula);
     switch (formula.id) {
       case 0: this.navCtrl.push(OsmolaridadPage, (formula = formula)); break;
       case 1: this.navCtrl.push(ImcPage, (formula = formula)); break;
