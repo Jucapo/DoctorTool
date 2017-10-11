@@ -19,11 +19,20 @@
     <ion-input [(ngModel)]="perfil.edad"></ion-input>
   </ion-item>
 
-  <ion-item>
-    <ion-label floating>Especialidad</ion-label>
-    <ion-input [(ngModel)]="perfil.especialidad"></ion-input>
-  </ion-item>
+  <ion-list margin-top>
+    <ion-item>
+      <ion-label>Especialidad</ion-label>
+      <ion-select [(ngModel)]="perfil.especialidad">
+        <ion-option value="General">General</ion-option>
+        <ion-option value="Anestesiologia">Anestesiologia</ion-option>
+        <ion-option value="Cirugia General">Cirugia General</ion-option>
+        <ion-option value="Ginecoostetricia">Ginecoostetricia</ion-option>
+        <ion-option value="Medicina Interna">Medicina Interna</ion-option>
+        <ion-option value="Pediatria">Pediatria</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
 
-  <button ion-button clear block (click)="crearPerfil()">Crear Perfil</button>
+  <button ion-button color="primary" block (click)="crearPerfil()">Editar Perfil</button>
 
 </ion-content>

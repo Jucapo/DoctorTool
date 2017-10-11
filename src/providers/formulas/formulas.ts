@@ -42,59 +42,22 @@ export class FormulasProvider {
     }
   }
 
+
+
   cargaRec(formula) {
     if (this.b == 0) {
       this.formulasRec[0] = formula;
     }
+     
     else {
-      this.formulasRecTemp = [];
       this.formulasRecTemp = this.formulasRec;
-      this.formulasRec.length = this.b+1;
       for (var i = 0; i <  this.b; i++) {
-        this.formulasRec[i+1] = this.formulasRecTemp[i];  
+        this.formulasRec[this.b-i] = this.formulasRecTemp[(this.b-i)-1];  
       }
       this.formulasRec[0] = formula;
     }
     this.b++;
-
-
-      //   else if(this.b == 1){
-      //   this.formulasRecTemp = this.formulasRec;
-      //   this.formulasRec[1] = this.formulasRecTemp[0];
-      //   this.formulasRec[0] = formula;
-      // }
-      // else if(this.b == 2){
-      //   this.formulasRecTemp = this.formulasRec;
-      //   this.formulasRec[2] = this.formulasRecTemp[1];
-      //   this.formulasRec[1] = this.formulasRecTemp[0];
-      //   this.formulasRec[0] = formula;
-      // }
-      // else if(this.b == 3){
-      //   this.formulasRecTemp = this.formulasRec;
-      //   this.formulasRec[3] = this.formulasRecTemp[2];
-      //   this.formulasRec[2] = this.formulasRecTemp[1];
-      //   this.formulasRec[1] = this.formulasRecTemp[0];
-      //   this.formulasRec[0] = formula;
-      // }
-  
-      // else if(this.b == 4){
-      //   this.formulasRecTemp = this.formulasRec;
-      //   this.formulasRec[4] = this.formulasRecTemp[3];
-      //   this.formulasRec[3] = this.formulasRecTemp[2];
-      //   this.formulasRec[2] = this.formulasRecTemp[1];
-      //   this.formulasRec[1] = this.formulasRecTemp[0];
-      //   this.formulasRec[0] = formula;
-      // }
-  
-      // else if(this.b == 5){
-      //   this.formulasRecTemp = this.formulasRec;
-      //   this.formulasRec[5] = this.formulasRecTemp[4];
-      //   this.formulasRec[4] = this.formulasRecTemp[3];
-      //   this.formulasRec[3] = this.formulasRecTemp[2];
-      //   this.formulasRec[2] = this.formulasRecTemp[1];
-      //   this.formulasRec[1] = this.formulasRecTemp[0];
-      //   this.formulasRec[0] = formula;
-      // }
+    
 
   }
 
