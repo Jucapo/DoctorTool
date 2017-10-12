@@ -13,7 +13,6 @@ export class FormulasProvider {
   formulasRecTemp: Formula[] = [];
   a = 0;
   b = 0;
-  c = 1;
 
   constructor(public http: Http) {
     this.loadData();
@@ -21,12 +20,34 @@ export class FormulasProvider {
 
   loadData() {
     this.data = [
-      { id: 0, nombre: 'OSMP', descripcion: 'Osmolaridad Plasmatica', especialidad: 'General', favorito: false, imagen: 'assets/icon_formulas/osmp.png' },
-      { id: 1, nombre: 'IMC', descripcion: 'Indice Masa Corporal', especialidad: 'General', favorito: false, imagen: 'assets/icon_formulas/imc.png' },
-      { id: 2, nombre: 'ASC', descripcion: 'Area Superficie Corporal', especialidad: 'General', favorito: false, imagen: 'assets/icon_formulas/asc.png' },
-      { id: 3, nombre: 'LEE', descripcion: 'Indice de pronostico de LEE', especialidad: 'Anestesiologia', favorito: false, imagen: "assets/icon_formulas/lee.png" },
-      { id: 4, nombre: 'VTS', descripcion: 'Volumen Total Sanguinio', especialidad: 'General', favorito: false, imagen: "assets/icon_formulas/vst.png" },
 
+      //A
+      {  nombre: 'ASC', descripcion: 'Area Superficie Corporal', especialidad: 'General', favorito: false, imagen: 'assets/icon_formulas/a.png' },
+      {  nombre: 'APACHE II', descripcion: 'Calculo APACHE II', especialidad: 'Cirugia General', favorito: false, imagen: "assets/icon_formulas/a.png" },  
+      //E
+      {  nombre: 'EDAD G', descripcion: 'Calculo de Edad Gestional', especialidad: 'GinecoObstetricia', favorito: false, imagen: "assets/icon_formulas/e.png" },
+      //F
+      {  nombre: 'FPP', descripcion: 'Calculo de Fecha Probable de Parto', especialidad: 'GinecoObstetricia', favorito: false, imagen: "assets/icon_formulas/f.png" },
+      //G
+      {  nombre: 'GUPTA', descripcion: 'Calculadora de Riesgo Gupta', especialidad: 'Anestesiologia', favorito: false, imagen: "assets/icon_formulas/g.png" },
+      //H
+      {  nombre: 'HOLLIDAY', descripcion: 'Formula HOLLIDAY para Calculo de Lliquidos', especialidad: 'Pediatria', favorito: false, imagen: "assets/icon_formulas/h.png" }, 
+      //I
+      {  nombre: 'IMC', descripcion: 'Indice Masa Corporal', especialidad: 'General', favorito: false, imagen: 'assets/icon_formulas/i.png' },
+      //L
+      {  nombre: 'LEE', descripcion: 'Indice de pronostico de LEE', especialidad: 'Anestesiologia', favorito: false, imagen: "assets/icon_formulas/l.png" },
+      //O
+      {  nombre: 'OSMP', descripcion: 'Osmolaridad Plasmatica', especialidad: 'Medicina Interna', favorito: false, imagen: 'assets/icon_formulas/o.png' },
+      //P
+      {  nombre: 'PAC', descripcion: 'Porcentaje de Agua Corporal', especialidad: 'General', favorito: false, imagen: "assets/icon_formulas/p.png" },
+      {  nombre: 'PSP', descripcion: 'Perdidas Sanguineas Permisibles', especialidad: 'Anestesiologia', favorito: false, imagen: "assets/icon_formulas/p.png" },
+      {  nombre: 'PSE', descripcion: 'Ccalculo de Peso Segun la Edad', especialidad: 'Pediatria', favorito: false, imagen: "assets/icon_formulas/p.png" },
+      {  nombre: 'PPT', descripcion: 'Percentiles de Peso y Talla', especialidad: 'Pediatria', favorito: false, imagen: "assets/icon_formulas/p.png" },
+      //T
+      {  nombre: 'TFG', descripcion: 'Tasa de Filtracion Glomerural', especialidad: 'Medicina Interna', favorito: false, imagen: "assets/icon_formulas/t.png" },     
+      //V
+      {  nombre: 'VST', descripcion: 'Volumen Total Sanguinio', especialidad: 'General', favorito: false, imagen: "assets/icon_formulas/v.png" },
+     
     ];
   }
 
@@ -48,16 +69,19 @@ export class FormulasProvider {
     if (this.b == 0) {
       this.formulasRec[0] = formula;
     }
-     
+
     else {
       this.formulasRecTemp = this.formulasRec;
-      for (var i = 0; i <  this.b; i++) {
-        this.formulasRec[this.b-i] = this.formulasRecTemp[(this.b-i)-1];  
+      for (var i = 0; i < this.b; i++) {
+        this.formulasRec[this.b - i] = this.formulasRecTemp[(this.b - i) - 1];
       }
       this.formulasRec[0] = formula;
     }
-    this.b++;
-    
+    if (this.b == 6) {
+      this.b++;
+    }
+
+
 
   }
 

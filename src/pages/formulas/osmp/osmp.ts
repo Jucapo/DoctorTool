@@ -3,15 +3,15 @@ import { NavController, NavParams } from 'ionic-angular';
 import {CalculosProvider } from '../../../providers/calculos/calculos';
 
 @Component({
-  selector: 'page-osmolaridad',
-  templateUrl: 'osmolaridad.html',
+  selector: 'page-osmp',
+  templateUrl: 'osmp.html',
 })
-export class OsmolaridadPage {
-  
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-  public service: CalculosProvider ) {
-  }
+export class OsmpPage {
 
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public service: CalculosProvider ) {
+    }
+  
   osmp = 0;
   na: string;
   but: string;
@@ -23,5 +23,5 @@ export class OsmolaridadPage {
     let glucosa = parseInt(this.glucosa);
     this.osmp = this.service.osmp(na, but, glucosa);
   }
-  
+
 }
