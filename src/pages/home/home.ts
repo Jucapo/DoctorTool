@@ -7,12 +7,15 @@ import { MenuOpcionesPage } from '../menu-opciones/menu-opciones';
 import { ConfiguracionesPage } from '../configuraciones/configuraciones';
 import { SoportePage } from '../soporte/soporte';
 import { PerfilPage } from '../perfil/perfil';
-
 import { Profile } from '../../models/profile';
 //_________________________FIREBASE_____________________________________
-
+import { firebaseConfig } from '../../app/firebase.config';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+// import { storage, initializeApp } from 'firebase';
+// import { Camera, CameraOptions } from '@ionic-native/camera';
+
+
 
 @Component({
   selector: 'page-home',
@@ -21,8 +24,8 @@ import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/data
 export class HomePage {
 
   root: any = MenuOpcionesPage;
-  perfilData: FirebaseObjectObservable<{Profile}>;
-  
+  perfilData: FirebaseObjectObservable<{ Profile }>;
+
 
   menuOpc: Menu[] = [
     { label: 'Inicio', icon: 'home' },
@@ -33,8 +36,31 @@ export class HomePage {
 
   constructor(public navCtrl: NavController, public storage: Storage,
     private afAuth: AngularFireAuth, private afDatabase: AngularFireDatabase,
-     private toast: ToastController ) { }
+  private toast: ToastController,/* private camera: Camera*/) {
+    // initializeApp(firebaseConfig);
 
+  }
+
+  // async takePhoto() {
+  //   try {
+  //     const options: CameraOptions = {
+  //       quality: 50,
+  //       targetHeight: 600,
+  //       targetWidth: 600,
+  //       destinationType: this.camera.DestinationType.DATA_URL,
+  //       encodingType: this.camera.EncodingType.JPEG,
+  //       mediaType: this.camera.MediaType.PICTURE,
+  //       correctOrientation: true
+  //     }
+  //     const result = await this.camera.getPicture(options);
+  //     const image = `data:image/jpeg;base64,${result}`;
+  //     const pictures = storage().ref('picture/fotoPerfil');
+  //     pictures.putString(image, 'data_url');
+  //   }
+  //   catch (e) {
+  //     console.error(e);
+  //   }
+  // }
 
   ionViewWillLoad() {
     this.afAuth.authState.take(1).subscribe(data => {
@@ -43,8 +69,7 @@ export class HomePage {
           message: `Bienvenido a DooctorTool  ${data.email}`,
           duration: 3000
         }).present();
-
-         this.perfilData =  this.afDatabase.object(`perfil/${data.uid}`)
+        this.perfilData = this.afDatabase.object(`perfil/${data.uid}`)
       }
       else {
         this.toast.create({

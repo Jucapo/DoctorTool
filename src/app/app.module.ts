@@ -47,15 +47,9 @@ import { AngularFireModule } from "angularfire2";
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireDatabaseModule } from 'angularfire2/database-deprecated';
-
-export const firebaseConfig = {
-  apiKey: "AIzaSyC1cNRtQthdPXGl-EKJPYbgCTYwvwEjV3U",
-  authDomain: "doctortool-807a4.firebaseapp.com",
-  databaseURL: "https://doctortool-807a4.firebaseio.com",
-  projectId: "doctortool-807a4",
-  storageBucket: "doctortool-807a4.appspot.com",
-  messagingSenderId: "1090164923653"
-};
+import { firebaseConfig } from './firebase.config';
+// import { storage } from 'firebase';
+// import { Camera } from '@ionic-native/camera';
 
 
 @NgModule({
@@ -102,7 +96,8 @@ export const firebaseConfig = {
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     FormulasProvider,
-    CalculosProvider
+    CalculosProvider,
+    //Camera
   ]
 })
 export class AppModule { }

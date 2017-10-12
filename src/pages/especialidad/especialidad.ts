@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+//Pages
+import { Profile } from '../../models/profile';
 //_________________________SERVICIOS__________________________________
 import { Formula } from '../../providers/formulas/formula';
 import { FormulasProvider } from '../../providers/formulas/formulas';
@@ -21,17 +23,25 @@ import { PsePage } from '../formulas/pse/pse';
 import { PspPage } from '../formulas/psp/psp';
 import { TfgPage } from '../formulas/tfg/tfg';
 
+//_________________________FIREBASE_____________________________________
+import { firebaseConfig } from '../../app/firebase.config';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+
 
 @Component({
   selector: 'page-especialidad',
   templateUrl: 'especialidad.html',
 })
-
 export class EspecialidadPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    public service: FormulasProvider) {    
-      this.service.cargaFav();
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+    public service: FormulasProvider) {
+  }
+
+  addFavorito(formula) {
+    this.service.data[formula.id].favorito = !this.service.data[formula.id].favorito;
+    this.service.cargaFav();
   }
   
   goToFormula(formula) {
@@ -54,5 +64,4 @@ export class EspecialidadPage {
       case "PPT": this.navCtrl.push(PptPage, (formula = formula)); break;
     }
   }
-
 }

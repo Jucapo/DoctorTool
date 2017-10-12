@@ -36,6 +36,11 @@ export class RecientesPage {
       this.formulasRec = this.service.formulasRec;
       
   }
+  
+  addFavorito(formula) {
+    this.service.data[formula.id].favorito = !this.service.data[formula.id].favorito;
+    this.service.cargaFav();
+  }
 
   goToFormula(formula) {
     this.service.cargaRec(formula);
