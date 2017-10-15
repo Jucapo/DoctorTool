@@ -11,6 +11,7 @@ export class FormulasProvider {
   formulasFav: Formula[] = [];
   formulasRec: Formula[] = [];
   formulasRecTemp: Formula[] = [];
+  formulasEspecialidad: Formula[] = [];
   a = 0;
   b = 0;
 
@@ -51,10 +52,9 @@ export class FormulasProvider {
   }
 
   cargaFav() {
-
     this.a = 0;
     this.formulasFav.length = 0;
-    for (var i = 0; i < this.data.length; i++) { // de todas las formulas, se escogeran las favoritas
+    for (var i = 0; i < this.data.length; i++) { 
       if (this.data[i].favorito) {
         this.formulasFav[this.a] = this.data[i];
         this.a++;
@@ -62,13 +62,25 @@ export class FormulasProvider {
     }
   }
 
+  cargaEspecialidad(especialidad:string) {
+    this.a = 0;
+    this.formulasFav.length = 0;
+    for (var i = 0; i < this.data.length; i++) { 
+      if (this.data[i].especialidad == especialidad) {
+        this.formulasEspecialidad[this.a] = this.data[i];
+        this.a++;
+      }
+    }
+
+    // this.data.filter(it => it.especialidad == especialidad)
+    //   .forEach(it => this.formulasEspecialidad.push(it)); 
+  }
 
 
   cargaRec(formula) {
     if (this.b == 0) {
       this.formulasRec[0] = formula;
     }
-
     else {
       this.formulasRecTemp = this.formulasRec;
       for (var i = 0; i < this.b; i++) {
@@ -76,13 +88,9 @@ export class FormulasProvider {
       }
       this.formulasRec[0] = formula;
     }
-    if (this.b == 6) {
+    if (this.b <= 4) {
       this.b++;
     }
 
-
-
   }
-
-
 }

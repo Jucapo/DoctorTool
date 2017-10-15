@@ -27,6 +27,7 @@ import { TfgPage } from '../formulas/tfg/tfg';
 import { firebaseConfig } from '../../app/firebase.config';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/database-deprecated';
+import firebase from 'firebase';
 
 
 @Component({
@@ -35,26 +36,42 @@ import { AngularFireDatabase, FirebaseObjectObservable } from 'angularfire2/data
 })
 export class EspecialidadPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-    public service: FormulasProvider) {
+  formulasEspecialidad : Formula[] =[];
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public service: FormulasProvider, private afAuth: AngularFireAuth ) {
+      
+      this.formulasEspecialidad = this.service.formulasEspecialidad;
+    //________________________Encontrar Especialidad______________________________________
+    this.afAuth.authState.subscribe(data =>{
+      var ref = firebase.database().ref(`perfil/${data.uid}`);
+      ref.once("value")
+        .then( (snapshot)=> {
+          var especialidad = snapshot.child("/especialidad").val();     
+          console.log(JSON.stringify(especialidad));
+          this.service.cargaEspecialidad(especialidad);      
+        });       
+    })
+    //__________________________________________________________________________________   
   }
+
 
   addFavorito(formula) {
     this.service.data[formula.id].favorito = !this.service.data[formula.id].favorito;
     this.service.cargaFav();
   }
-  
+
   goToFormula(formula) {
     this.service.cargaRec(formula);
     switch (formula.nombre) {
-      case "IMC": this.navCtrl.push(ImcPage, (formula = formula)); break;   
+      case "IMC": this.navCtrl.push(ImcPage, (formula = formula)); break;
       case "ASC": this.navCtrl.push(AscPage, (formula = formula)); break;
-      case "VST": this.navCtrl.push(VstPage, (formula = formula)); break;      
+      case "VST": this.navCtrl.push(VstPage, (formula = formula)); break;
       case "PAC": this.navCtrl.push(PacPage, (formula = formula)); break;
       case "APACHE II": this.navCtrl.push(Apache2Page, (formula = formula)); break;
       case "LEE": this.navCtrl.push(LeePage, (formula = formula)); break;
       case "GUPTA": this.navCtrl.push(GuptaPage, (formula = formula)); break;
-      case "PSP": this.navCtrl.push(PspPage,(formula = formula)); break;
+      case "PSP": this.navCtrl.push(PspPage, (formula = formula)); break;
       case "EDAD G": this.navCtrl.push(EdadGPage, (formula = formula)); break;
       case "FPP": this.navCtrl.push(FppPage, (formula = formula)); break;
       case "OSMP": this.navCtrl.push(OsmpPage, (formula = formula)); break;

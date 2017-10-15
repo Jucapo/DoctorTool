@@ -33,8 +33,7 @@ export class RecientesPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public service: FormulasProvider) {    
-      this.formulasRec = this.service.formulasRec;
-      
+      this.formulasRec = this.service.formulasRec;   
   }
   
   addFavorito(formula) {
