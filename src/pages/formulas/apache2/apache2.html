@@ -1,13 +1,219 @@
-
 <ion-header>
-
   <ion-navbar color="primary">
     <ion-title>Calculo APACHE 2</ion-title>
   </ion-navbar>
-
 </ion-header>
-
 
 <ion-content padding>
 
+  <h2 text-center>CALCULO APACHE II</h2>
+
+  <img src="assets/formulas/apache2.jpg" alt="">
+  <div text-center margin-top>
+    <h4>Puntos APS</h4>
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>Temperatura(°C)</ion-label>
+        <ion-select [(ngModel)]="Temperatura">
+          <ion-option value="4"><30°</ion-option>
+          <ion-option value="3">30°-31,9°</ion-option>
+          <ion-option value="2">32°-33.9°</ion-option>
+          <ion-option value="1">34°-35.9°</ion-option>
+          <ion-option value="0">36°-38,4°</ion-option>
+          <ion-option value="1">38.5°-38.9°</ion-option>
+          <ion-option value="3">39°-40.9°</ion-option>
+          <ion-option value="4">>40.9°</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>Pres. Arterial Media(mmHG)</ion-label>
+        <ion-select [(ngModel)]="PAM">
+          <ion-option value="4"><50</ion-option>
+          <ion-option value="2">50-69</ion-option>
+          <ion-option value="0">70-109</ion-option>
+          <ion-option value="2">110-129</ion-option>
+          <ion-option value="3">130-159</ion-option>
+          <ion-option value="4">>159</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>Frec. Cardiaca(lpm)</ion-label>
+        <ion-select [(ngModel)]="FC">
+          <ion-option value="4"><40</ion-option>
+          <ion-option value="3">40-54</ion-option>
+          <ion-option value="2">55-69</ion-option>
+          <ion-option value="0">70-109</ion-option>
+          <ion-option value="2">110-129</ion-option>
+          <ion-option value="3">130-179</ion-option>
+          <ion-option value="4">>179</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>Frec. Respiratoria(rpm)</ion-label>
+        <ion-select [(ngModel)]="FR">
+          <ion-option value="4"><6</ion-option>
+          <ion-option value="2">6-9</ion-option>
+          <ion-option value="1">10-11</ion-option>
+          <ion-option value="0">12-24</ion-option>
+          <ion-option value="1">25-34</ion-option>
+          <ion-option value="3">35-49</ion-option>
+          <ion-option value="4">>49</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>pH Arterial</ion-label>
+        <ion-select [(ngModel)]="FR">
+          <ion-option value="4"><7.15</ion-option>
+          <ion-option value="3">7.15-7.24</ion-option>
+          <ion-option value="2">7.25-7.32</ion-option>
+          <ion-option value="0">7.33-7.49</ion-option>
+          <ion-option value="2">7.5-7.59</ion-option>
+          <ion-option value="3">7.6-7.69</ion-option>
+          <ion-option value="4">>7.7</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>Na plasmatico (mmol/L)</ion-label>
+        <ion-select [(ngModel)]="NaP">
+          <ion-option value="4"><111</ion-option>
+          <ion-option value="3">111-119</ion-option>
+          <ion-option value="2">120-129</ion-option>
+          <ion-option value="0">130-149</ion-option>
+          <ion-option value="1">150-154</ion-option>
+          <ion-option value="2">155-159</ion-option>
+          <ion-option value="3">160-179</ion-option>
+          <ion-option value="4">>179</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>K plasmatico (mmol/L)</ion-label>
+        <ion-select [(ngModel)]="KP">
+          <ion-option value="4"><2.5</ion-option>
+          <ion-option value="2">2.5-2.9</ion-option>
+          <ion-option value="1">3-3.4</ion-option>
+          <ion-option value="0">3.5-5.4</ion-option>
+          <ion-option value="1">5.5-5.9</ion-option>
+          <ion-option value="3">6-6.9</ion-option>
+          <ion-option value="4">>6.9</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>Creatinina (mg/dL)</ion-label>
+        <ion-select [(ngModel)]="Creatinina">
+          <ion-option value="2"><0.6</ion-option>
+          <ion-option value="0">0.6-1.4</ion-option>
+          <ion-option value="2">1.5-1.9</ion-option>
+          <ion-option value="3">2-3.4</ion-option>
+          <ion-option value="4">>3.4</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>Hematocrito (%)</ion-label>
+        <ion-select [(ngModel)]="Hematocrito">
+          <ion-option value="4"><20</ion-option>
+          <ion-option value="2">20-29.9</ion-option>
+          <ion-option value="0">30-45.9</ion-option>
+          <ion-option value="1">46.49.9</ion-option>
+          <ion-option value="2">50-59.9</ion-option>
+          <ion-option value="4">>59.9</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>Leucocitos (*1000)</ion-label>
+        <ion-select [(ngModel)]="Leucocitos">
+          <ion-option value="4">1</ion-option>
+          <ion-option value="2">1-2.9</ion-option>
+          <ion-option value="0">3-14.9</ion-option>
+          <ion-option value="1">15-19.9</ion-option>
+          <ion-option value="2">20-39.9</ion-option>
+          <ion-option value="4">>40</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div margin-top>
+    <h4 text-center>Puntos Glasgow Coma Score</h4>
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>GCS</ion-label>
+        <ion-select [(ngModel)]="GCS">
+          <ion-option value="12">3</ion-option>
+          <ion-option value="11">4</ion-option>
+          <ion-option value="10">5</ion-option>
+          <ion-option value="9">6</ion-option>
+          <ion-option value="8">7</ion-option>
+          <ion-option value="7">8</ion-option>
+          <ion-option value="6">9</ion-option>
+          <ion-option value="5">10</ion-option>
+          <ion-option value="4">11</ion-option>
+          <ion-option value="3">12</ion-option>
+          <ion-option value="2">13</ion-option>
+          <ion-option value="1">14</ion-option>
+          <ion-option value="0">15</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div margin-top>
+    <h4 text-center>Puntos EDAD</h4>
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>EDAD (años)</ion-label>
+        <ion-select [(ngModel)]="edad">
+          <ion-option value="0">menor de 44</ion-option>
+          <ion-option value="2">entre 45-55</ion-option>
+          <ion-option value="3">entre 55-64</ion-option>
+          <ion-option value="5">entre 65-74</ion-option>
+          <ion-option value="6">mayor de 75</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div margin-top>
+    <h4 text-center>Puntos Enfermedad Previa</h4>
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>Enfermedad Previa</ion-label>
+        <ion-select [(ngModel)]="enfPrev">
+          <ion-option value="2">Preoperatorio programado</ion-option>
+          <ion-option value="5">Preoperatorio urgente o medico</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div text-center>
+    <button  ion-button  margin-top (click)="calcular()">    Calcular    </button>
+    <h1 color="strong" text-center margin-top>{{APACHE2}}</h1>
+  </div>
 </ion-content>

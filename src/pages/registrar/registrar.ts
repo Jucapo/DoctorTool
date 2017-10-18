@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 
 import { User } from '../../models/user';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-registrar',
@@ -19,7 +20,7 @@ export class RegistrarPage {
  async registrar(user: User){
    try{
    const result = await this.ofAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
-  console.log(result);
+   this.navCtrl.push(LoginPage);
   }
    catch(e){
      console.error(e);

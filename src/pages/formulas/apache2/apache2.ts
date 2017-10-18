@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the Apache2Page page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import {CalculosProvider } from '../../../providers/calculos/calculos';
 
 @Component({
   selector: 'page-apache2',
@@ -14,11 +8,40 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class Apache2Page {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public service: CalculosProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Apache2Page');
+  APACHE2 = 0;
+  Temperatura: string;
+  PAM: string;
+  FC: string;
+  FR: string;
+  NaP: string;
+  KP: string;
+  Creatinina: string;
+  Hematocrito: string;
+  Leucocitos: string;
+  GCS: string;
+  edad: string;
+  enfPrev: string;
+  
+
+  calcular() {
+    let Temperatura = parseInt(this.Temperatura);
+    let PAM = parseInt(this.PAM);
+    let FC = parseInt(this.FC);
+    let FR = parseInt(this.FR);
+    let NaP = parseInt(this.PAM);
+    let KP = parseInt(this.KP);   
+    let Creatinina = parseInt(this.Creatinina);
+    let Hematocrito = parseInt(this.Hematocrito);
+    let Leucocitos = parseInt(this.Leucocitos);
+    let GCS = parseInt(this.GCS);
+    let edad = parseInt(this.edad);
+    let enfPrev = parseInt(this.enfPrev);
+       
+    this.APACHE2 = this.service.apache2(Temperatura,PAM,FC,FR,NaP,KP,Creatinina,Hematocrito,Leucocitos,GCS,edad,enfPrev);
   }
 
 }

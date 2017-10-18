@@ -3,11 +3,25 @@ page-login {
         font-family: freeScript;
         color: #359CC7;
         font-size: 4em;
+        min-width: 260px;
+    }
+    .top{
+        min-height: 320px;
     }
     .login-main{
         display: flex;
         flex-direction: column;
         height: 100%;
+    }
+    div.login-form{
+        max-height: 20%;
+    }
+    .login-form{
+        
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: center;
     }
     .login-bg{
         background-image: url('../assets/img/login_fondo.png');
