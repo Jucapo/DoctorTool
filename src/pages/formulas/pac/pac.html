@@ -1,13 +1,38 @@
-
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>PAC</ion-title>
+    <ion-title>Porcentaje de Agua Corporal</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  <div text-center>
+      <h2> Porcentaje Agua Corporal </h2>
+      <img src="assets/formulas/pac.jpg" alt="">
+
+    <ion-item color="itemLight">
+      <ion-label floating>EDAD(años): </ion-label>
+      <ion-input [(ngModel)]="edad" type="number" name="edad"></ion-input>
+    </ion-item>
+
+    <ion-item color="itemLight">
+      <ion-label floating>Peso(Kg): </ion-label>
+      <ion-input [(ngModel)]="peso" type="number" name="peso"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Altura(m): </ion-label>
+      <ion-input [(ngModel)]="altura" type="float" name="altura"></ion-input>
+    </ion-item>
+
+    <div>
+        <button item-center ion-button (click)="calcular()">Calcular</button>
+        <h1 color="strong" text-center margin-top> PAC = {{pac}} % </h1>
+      </div>
+
+  </div>
 
 </ion-content>

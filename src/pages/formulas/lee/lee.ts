@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {  NavController, NavParams } from 'ionic-angular';
+import {CalculosProvider } from '../../../providers/calculos/calculos';
 
 @Component({
   selector: 'page-lee',
@@ -7,11 +8,25 @@ import {  NavController, NavParams } from 'ionic-angular';
 })
 export class LeePage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public service: CalculosProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LeePage');
+  LEE = 0;
+  LEEP = 0;
+  edad: string;
+  peso: string;
+  altura: string;
+  afc: string;
+
+  calcular() {
+    let edad = parseInt(this.edad);
+    let peso = parseInt(this.peso);
+    let altura = parseInt(this.altura);
+    let afc = parseInt(this.afc);
+     
+    this.LEE = this.service.LEE(edad,peso,altura,afc);
+    this.LEEP = this.LEE* 2.5679;
   }
 
 }

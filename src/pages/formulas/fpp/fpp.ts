@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { CalculosProvider } from '../../../providers/calculos/calculos';
 
-/**
- * Generated class for the FppPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-fpp',
@@ -14,11 +9,16 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class FppPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public service: CalculosProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FppPage');
+  fpp: Date;
+  fum: Date;
+
+  calcular() {
+    let fum = this.fum;
+    this.fpp = this.service.fpp(fum);
   }
 
 }

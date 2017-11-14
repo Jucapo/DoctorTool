@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the EdadGPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { CalculosProvider } from '../../../providers/calculos/calculos';
 
 @Component({
   selector: 'page-edad-g',
@@ -14,11 +8,16 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class EdadGPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public service: CalculosProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad EdadGPage');
+  edadG: Date;
+  fum: Date;
+
+  calcular() {
+    let fum = this.fum;
+    this.edadG = this.service.edadG(fum);
   }
 
 }

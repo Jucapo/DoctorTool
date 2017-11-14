@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import {CalculosProvider } from '../../../providers/calculos/calculos';
 
-/**
- * Generated class for the PacPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-pac',
@@ -14,11 +9,20 @@ import { NavController, NavParams } from 'ionic-angular';
 })
 export class PacPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    public service: CalculosProvider) {
+    }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad PacPage');
-  }
+    pac= 0;
+    peso: string;
+    altura: string;
+    edad: string;
+
+    calcular() {
+      let peso = parseInt(this.peso);
+      let altura = parseFloat(this.altura);
+      let edad = parseFloat(this.edad);      
+      this.pac = this.service.pac(peso, altura,edad);
+    }
 
 }

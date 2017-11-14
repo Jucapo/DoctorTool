@@ -11,7 +11,8 @@ export class Apache2Page {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public service: CalculosProvider) {
   }
-
+  porMortalidad: number = 0;
+  porMortalidadPos: number = 0;
   APACHE2 = 0;
   Temperatura: string;
   PAM: string;
@@ -25,7 +26,7 @@ export class Apache2Page {
   GCS: string;
   edad: string;
   enfPrev: string;
-  
+ 
 
   calcular() {
     let Temperatura = parseInt(this.Temperatura);
@@ -40,8 +41,11 @@ export class Apache2Page {
     let GCS = parseInt(this.GCS);
     let edad = parseInt(this.edad);
     let enfPrev = parseInt(this.enfPrev);
+    
        
     this.APACHE2 = this.service.apache2(Temperatura,PAM,FC,FR,NaP,KP,Creatinina,Hematocrito,Leucocitos,GCS,edad,enfPrev);
+    this.porMortalidad = (this.APACHE2*1.5564)
+    this.porMortalidadPos = (this.APACHE2*0.3648)
   }
 
 }

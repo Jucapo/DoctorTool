@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
 import { HomePage } from '../home/home';
 import { Storage } from '@ionic/storage';
 import { User } from '../../models/user';
 import { RegistrarPage } from '../registrar/registrar';
-
 import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({

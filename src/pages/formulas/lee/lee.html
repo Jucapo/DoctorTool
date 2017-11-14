@@ -1,13 +1,55 @@
-
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>LEE</ion-title>
+    <ion-title>Indice pronóstico de LEE</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div text-center>
 
+    <h4> Indice LEE para adultos mayores de 60 años</h4>
+
+    <ion-item color="itemLight">
+      <ion-label floating>EDAD(años): </ion-label>
+      <ion-input [(ngModel)]="edad" type="number" name="edad"></ion-input>
+    </ion-item>
+
+    <ion-item color="itemLight">
+      <ion-label floating>Peso(Kg): </ion-label>
+      <ion-input [(ngModel)]="peso" type="number" name="peso"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>Altura(m): </ion-label>
+      <ion-input [(ngModel)]="altura" type="float" name="altura"></ion-input>
+    </ion-item>
+
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>Afecciones</ion-label>
+        <ion-select [(ngModel)]="afc">
+          <ion-option value="5.12">Diabetes mellitus</ion-option>
+          <ion-option value="9.21">Cancer</ion-option>
+          <ion-option value="8.62">Enfermedad pulmonar</ion-option>
+          <ion-option value="8.42">Insuficiencia cardiaca:</ion-option>
+          <ion-option value="2.41">Fumador habitual</ion-option>
+          <ion-option value="2.96">Precisa ayuda para su higiene diaria</ion-option>
+          <ion-option value="3.41">Precisa ayuda para manejar su economía</ion-option>
+          <ion-option value="4.67">No puede andar varias manzanas</ion-option>
+          <ion-option value="4.38">Precisa ayuda para levantar o empujar objetos pesados</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <div>
+      <button item-center ion-button (click)="calcular()">Calcular</button>
+      <h1 color="strong" text-center margin-top> Indice LEE = {{LEE}} </h1>
+      <h4 color="strong" text-center margin-top> Probabilidad de fallecimiento en los próximos 4 años = {{LEEP}} %</h4>
+
+    </div>
+
+  </div>
 </ion-content>

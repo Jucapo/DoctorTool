@@ -35,24 +35,34 @@ import firebase from 'firebase';
   templateUrl: 'especialidad.html',
 })
 export class EspecialidadPage {
+  perfilData: FirebaseObjectObservable<{ Profile }>;
+  formulasEspecialidad: Formula[] = [];
 
-  formulasEspecialidad : Formula[] =[];
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public service: FormulasProvider,
+    private afAuth: AngularFireAuth,
+    private afDatabase: AngularFireDatabase) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,
-    public service: FormulasProvider, private afAuth: AngularFireAuth ) {
-      
-      this.formulasEspecialidad = this.service.formulasEspecialidad;
+    this.formulasEspecialidad = this.service.formulasEspecialidad;
     //________________________Encontrar Especialidad______________________________________
-    this.afAuth.authState.subscribe(data =>{
+    this.afAuth.authState.subscribe(data => {
       var ref = firebase.database().ref(`perfil/${data.uid}`);
       ref.once("value")
-        .then( (snapshot)=> {
-          var especialidad = snapshot.child("/especialidad").val();     
+        .then((snapshot) => {
+          var especialidad = snapshot.child("/especialidad").val();
           console.log(JSON.stringify(especialidad));
-          this.service.cargaEspecialidad(especialidad);      
-        });       
+          this.service.cargaEspecialidad(especialidad);
+        });
     })
     //__________________________________________________________________________________   
+  }
+
+  ionViewWillLoad() {
+    this.afAuth.authState.take(1).subscribe(data => {
+      this.perfilData = this.afDatabase.object(`perfil/${data.uid}`)
+    })
   }
 
 

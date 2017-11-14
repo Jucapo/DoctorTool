@@ -14,6 +14,11 @@ export class FormulasProvider {
   formulasEspecialidad: Formula[] = [];
   a = 0;
   b = 0;
+  porcentaje = 0;
+  inversion = 0;
+  compound = 0;
+  temp=0;
+  x=0;
 
   constructor(public http: Http) {
     this.loadData();
@@ -30,9 +35,9 @@ export class FormulasProvider {
       //F
       { id: 3, nombre: 'FPP', descripcion: 'Calculo de Fecha Probable de Parto', especialidad: 'GinecoObstetricia', favorito: false, imagen: "assets/icon_formulas/f.png" },
       //G
-      { id: 4, nombre: 'GUPTA', descripcion: 'Calculadora de Riesgo Gupta', especialidad: 'Anestesiologia', favorito: false, imagen: "assets/icon_formulas/g.png" },
+      { id: 4, nombre: 'GUPTA', descripcion: 'Riesgo Cardiaco Preoperatorio', especialidad: 'Anestesiologia', favorito: false, imagen: "assets/icon_formulas/g.png" },
       //H
-      { id: 5, nombre: 'HOLLIDAY', descripcion: 'Formula HOLLIDAY para Calculo de Lliquidos', especialidad: 'Pediatria', favorito: false, imagen: "assets/icon_formulas/h.png" },
+      { id: 5, nombre: 'HOLLIDAY', descripcion: 'Calculo de Liquidos', especialidad: 'Pediatria', favorito: false, imagen: "assets/icon_formulas/h.png" },
       //I
       { id: 6, nombre: 'IMC', descripcion: 'Indice Masa Corporal', especialidad: 'General', favorito: false, imagen: 'assets/icon_formulas/i.png' },
       //L
@@ -93,4 +98,25 @@ export class FormulasProvider {
     }
 
   }
+
+  calculo(p: number, inv: number, c: number) {
+      
+    this.porcentaje = p;
+    this.inversion = inv;
+    this.compound = c
+    let total = 0;
+
+    for (var i = 0; i < this.compound; i++) {  
+      if (i  == 0) {
+        this.temp = this.inversion;
+      } 
+      else {
+        total = ((this.temp*this.porcentaje)/100)+this.temp;
+        this.temp = total; 
+      }        
+    }
+  return total;
+  }
+
+
 }

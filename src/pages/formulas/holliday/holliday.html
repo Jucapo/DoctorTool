@@ -1,13 +1,29 @@
-
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>holliday</ion-title>
+    <ion-title>CALCULO DE LIQUIODS HOLLIDAY</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div text-center>
+    <ion-item>
+      <ion-label floating>Peso (Kg): </ion-label>
+      <ion-input [(ngModel)]="peso" type="number" name="peso"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label floating>Tiempo (Horas): </ion-label>
+        <ion-input [(ngModel)]="tiempo" type="number" name="tiempo"></ion-input>
+      </ion-item>
+
+    <div>
+      <button  margin-top item-center ion-button (click)="calcular()">Calcular</button>
+      <h1 color="strong" text-center margin-top> Liqidos Holliday = {{holliday}} mL</h1>
+    </div>
+  </div>
+
 
 </ion-content>

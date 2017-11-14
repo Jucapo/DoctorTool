@@ -1,13 +1,96 @@
-
 <ion-header>
 
   <ion-navbar color="primary">
-    <ion-title>gupta</ion-title>
+    <ion-title>Riesgo Cardiaco Preoperatorio GUPTA</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <div text-center>
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>EDAD (años)</ion-label>
+        <ion-select [(ngModel)]="edad">
+          <ion-option value="1">menor de 44</ion-option>
+          <ion-option value="2">entre 45-55</ion-option>
+          <ion-option value="3">entre 55-64</ion-option>
+          <ion-option value="4">entre 65-74</ion-option>
+          <ion-option value="5">mayor de 75</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
 
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>Creatinina(umol/L)</ion-label>
+        <ion-select [(ngModel)]="creatinina">
+          <ion-option value="2">
+            <=133</ion-option>
+              <ion-option value="7.5">>133</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>¿Clase ASA?</ion-label>
+        <ion-select [(ngModel)]="asa">
+          <ion-option value="0">Paciente sano normal</ion-option>
+          <ion-option value="1">Pacientes con enfermedad sistémica leve</ion-option>
+          <ion-option value="2">Pacientes con enfermedad sistémica severa</ion-option>
+          <ion-option value="3">Pacientes con enfermedad sistémica severa que es una amenaza constante para la vida</ion-option>
+          <ion-option value="4">Pacientes terminal que no se espera que sobrevivan sin la operación</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>¿Estado Funcional Preoperatorio?</ion-label>
+        <ion-select [(ngModel)]="efp">
+          <ion-option value="1">Total independiente</ion-option>
+          <ion-option value="2">Parcialmente dependiente</ion-option>
+          <ion-option value="3">Totalmente dependiente</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list margin-top>
+      <ion-item>
+        <ion-label>¿Lugar del Procedimiento?</ion-label>
+        <ion-select [(ngModel)]="ldp">
+          <ion-option value="6.51">Anorectal</ion-option>
+          <ion-option value="7.61">Aórtico</ion-option>
+          <ion-option value="4.6">Bariátrico</ion-option>
+          <ion-option value="12.3">Cerebro</ion-option>
+          <ion-option value="6.3">Pecho</ion-option>
+          <ion-option value="9.21">Cardíaco</ion-option>
+          <ion-option value="5.64">ENT (EXCEPTO tiroides / paratiroides)</ion-option>
+          <ion-option value="9.45">Foregut / Hepatopancreatobiliary</ion-option>
+          <ion-option value="2.6">Vesícula biliar, apéndice, adrenal y bazo</ion-option>
+          <ion-option value="4.3">Hernia (ventral, inguinal, femoral)</ion-option>
+          <ion-option value="7.1">Intestinal</ion-option>
+          <ion-option value="6.32">Cuello (tiroides / paratiroides)</ion-option>
+          <ion-option value="5.1">Obstétrico / ginecológico</ion-option>
+          <ion-option value="6.94">Extremidad ortopédica y no vascular</ion-option>
+          <ion-option value="6.5">Otro abdominal</ion-option>
+          <ion-option value="9.12">Vascular periférica</ion-option>
+          <ion-option value="7.3">Piel</ion-option>
+          <ion-option value="12.64">Espina</ion-option>
+          <ion-option value="5.24">Torácico no esofágico</ion-option>
+          <ion-option value="4.89">Vena</ion-option>
+          <ion-option value="7.84">Urología</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <div text-center>
+      <button ion-button margin-top (click)="calcular()"> Calcular </button>
+      <br/>
+      <br/>
+      <h1 color="strong" text-center margin-top>Riesgo GUPTA: {{GUPTA}} % </h1>
+    </div>
+  </div>
 </ion-content>
